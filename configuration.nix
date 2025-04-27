@@ -35,7 +35,7 @@
   };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services.xserver.enable = true;
 
   # Automatic garbage collection of old system generations
   nix.gc = {
@@ -71,11 +71,7 @@
   # programs.firefox.enable = true;
 
   # Enable display manager
-  services.xserver.enable = true;
-  # services.displayManager.sddm = {
-  #   enable = true;
-  #   wayland.enable = true;
-  # };
+  # services.displayManager.sddm.enable = true;
 
   # Enable the gnome-keyring secrets vault.
   # Will be exposed through DBus to programs willing to store secrets.
