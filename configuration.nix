@@ -71,24 +71,23 @@
   # programs.firefox.enable = true;
 
   # Enable display manager
-  # services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = true;
 
   # Enable the gnome-keyring secrets vault.
   # Will be exposed through DBus to programs willing to store secrets.
   services.gnome.gnome-keyring.enable = true;
 
   # Enable sway window manager
-  # programs.sway = {
-  #   enable = true;
-  #   wrapperFeatures.gtk = true;
-  # };
+  programs.sway = {
+    enable = true;
+    package = pkgs.swayfx;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #   wget
-    swayfx
     pkgs.foot
     pkgs.rofi-wayland
     firefox
