@@ -19,7 +19,7 @@
       nixosConfigurations = {
         unwired = lib.nixosSystem {
           inherit system;
-          modules = [ ./configuration.nix ];
+          modules = [ ./hosts/unwired/configuration.nix ];
         };
       };
       homeConfigurations = {
