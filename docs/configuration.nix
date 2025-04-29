@@ -8,11 +8,21 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      "${builtins.fetchTarball {
+        url = https://github.com/nix-community/disko/archive/master.tar.gz;
+        sha256 = "0kylbpgj8mp95xv0x5dfg6vyspjivqpnnas79w3dwsvqs8i1cw4z";
+      }}/module.nix"
+      ./disk-configuration.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.device = "nodev";
+  boot.loader.grub.enable = true;
+  boot.loader.grub.efiInstallAsRemovable = true;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.useOSProber = true;
 
   networking.hostName = "unwired"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -22,28 +32,46 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
+  # Select internationalisation properties.
+  i18n.defaultLocale = "de_DE.UTF-8";
+
+  # Enable unfree software
+  nixpkgs.config.allowUnfree = true;
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "de_DE.UTF-8";
+  # i18n.defaultLocale = "en_US.UTF-8";
   console = {
   #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
+  #   keyMap = "de";
     useXkbConfig = true; # use xkb.options in tty.
   };
 
-  # Automatic garbage collection of old system generations
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
+  # Enable the X11 windowing system.
+  # services.xserver.enable = true;
+
 
   # Configure keymap in X11
-  services.xserver.xkb.layout = "de";
+  # services.xserver.xkb.layout = "de";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
+
+  # Set default editor
+  # environment.variables.EDITOR = "vim";
+
+  # Enable Hyprland
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  # Enable Neovim
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -56,49 +84,38 @@
     pulse.enable = true;
   };
 
+  # Set keyboard layout
+  services.xserver.xkb = {
+    layout = "de";
+    variant = "workman";
+    options = "grp:win_space_toggle";
+  };  
+
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.desdpy = {
+  users.users.DesDepy = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "input" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [
+ 
+    ];
   };
-
-  # programs.firefox.enable = true;
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable display manager
-  services.displayManager.sddm.enable = true;
-
-  # Enable KDE Plasma
-  services.desktopManager.plasma6.enable = true;
-
-  # Enable the gnome-keyring secrets vault.
-  # Will be exposed through DBus to programs willing to store secrets.
-  services.gnome.gnome-keyring.enable = true;
-
-  # Enable sway window manager
-  # programs.sway = {
-  #   enable = true;
-  #   package = pkgs.swayfx;
-  # };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-    foot
-    firefox
+    mpvpaper
+    vscode
+    wget
+    brave
+    alacritty
     git
-    tree
+    flameshot
+    xdg-desktop-portal-hyprland
+    onlyoffice-bin
   ];
-
-  # Enable experimental features like flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -141,7 +158,9 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 }
 

@@ -25,7 +25,7 @@
       homeConfigurations = {
         desdpy = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home.nix ];
+          modules = [ ./users/desdpy.nix ];
         };
       };
     };
