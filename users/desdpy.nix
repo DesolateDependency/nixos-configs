@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }: {
+  imports = [
+    ../modules/home/default.nix
+  ];
 
-{
   home = {
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
@@ -75,29 +77,5 @@
     # Symlink dot files
     # file.".config/alacritty/alacritty.toml".source = ./dots/alacritty/alacritty.toml;
     # file.".config/hypr/hyprland.conf".source = ./dots/hyprland/hyprland.conf;
-  };
-
-  programs = {
-    # Git options
-    git = {
-      enable = true;
-      userName = "DesDepy";
-      userEmail = "desolatedependency@gmail.com";
-      extraConfig = {
-        init.defaultBranch = "main";
-      };
-    };
-
-    # Bash options
-    bash = {
-      enable = true;
-      shellAliases = {
-        ll = "ls -l";
-        ".." = "cd ..";
-      };
-    };
-
-    # Let Home Manager install and manage itself.
-    home-manager.enable = true;
   };
 }
