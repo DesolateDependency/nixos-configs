@@ -1,74 +1,28 @@
 .
+├── README.md
 ├── flake.nix
+├── flake.lock
 ├── docs/
-│   ├── howToFix.md
-│   ├── hyprland/
-│   ├── ags/
-│   ├── zfs/
-│   └── btrfs/
+│   ├── README.md
+│   ├── cheetsheet.md
+│   └── repo-structure.md
 ├── hosts/
-│   ├── desktop/
-│   ├── server/
-│   │   ├── rpi4/
-│   │   └── ../
-│   └── vm/
+│   ├── unwired/
+│   │   ├── configuration.nix
+│   │   └── hardware-configuration.nix
+│   └── ...
+├── users/
+│   ├── desdpy.nix
+│   └── ...
 ├── modules/
-│   ├── common/
-│   │   └── users/
-│   │       ├── root/
-│   │       │   ├── nixos/
-│   │       │   └── home/
-│   │       ├── me/
-│   │       │   ├── nixos/
-│   │       │   ├── home/
-│   │       │   └── darwin/
-│   │       └── guest/
-│   │           ├── nixos/
-│   │           ├── home/
-│   │           └── darwin/
 │   ├── nixos/
-│   │   ├── core/
-│   │   │   ├── bootloader/
-│   │   │   │   └── default.nix
-│   │   │   ├── zswap/
-│   │   │   │   └── default.nix
-│   │   │   ├── shell/
-│   │   │   │   └── zsh/
-│   │   │   │       └── default.nix
-│   │   │   ├── nix/
-│   │   │   │   └── options/
-│   │   │   │       └── default.nix
-│   │   │   ├── kernel/
-│   │   │   └── ...
+│   │   ├── common/
 │   │   └── optional/
-│   │       ├── wifi/
-│   │       │   ├── home/
-│   │       │   │   └── default.nix
-│   │       │   └── work/
-│   │       │       └── default.nix
-│   │       ├── drivers/
-│   │       │   └── gpu/
-│   │       │       ├── amd/
-│   │       │       └── nvidia/
-│   │       └── .../
-│   ├── home/
-│   │   ├── core/
-│   │   │   ├── zsh/
-│   │   │   └── pkgs/
-│   │   ├── optional/
-│   │   │   ├── desktop/
-│   │   │   │   ├── hyprland/
-│   │   │   │   ├── ags/
-│   │   │   │   └── ...
-│   │   │   └── pkgs/
-│   │   │       └── firefox/
-│   │   └── users/
-│   │       └── me/
-│   │           ├── pkgs/
-│   │           │   └── git/
-│   │           └── ...
-│   └── darwin/
-│       ├── core/
+│   └── home/
+│       ├── common/
 │       └── optional/
-├── secrets/
-└── .sops.yaml
+├── setup/
+│   └── disko.nix
+└── wallpapers/
+    ├── README.md
+    └── ...
