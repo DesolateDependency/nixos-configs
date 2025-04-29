@@ -79,5 +79,5 @@ home-manager switch --flake .
 \
 Update the flake.lock file with new versions:
 ```
-nix flake update
+sudo nix flake update
 ```
