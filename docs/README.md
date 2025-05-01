@@ -67,7 +67,7 @@ sudo curl -OL https://raw.githubusercontent.com/DesolateDependency/my-nixos-conf
 \
 Set a username that will be used in the later configuration:
 ```
-nano configuration.nix
+sudo nano configuration.nix
 ```
 \
 Trigger the installation and reboot the system.
