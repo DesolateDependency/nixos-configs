@@ -97,6 +97,7 @@ cat id_ed25519.pub
 ```
 \
 Add the ssh key to your github account with a browser.
+
 \
 Clone the dotfiles and nix configs.
 ```
