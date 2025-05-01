@@ -18,15 +18,15 @@ lsblk
 The next step is not necessary, but recommendet for security reasons. 
 We are overwriting the used drives with random data. This has to be done with every drive that should be used. This will also delete everything that is on the drives beyond recovery.
 ```
-dd if=/dev/urandom of=/dev/<name-of-drive> bs=4096 status=progress
+sudo dd if=/dev/urandom of=/dev/<name-of-drive> bs=4096 status=progress
 ```
 \
 Now we are getting the disko file to setup the partitions from github (make sure that you are connected with the internet):
 ```
-curl -OL https://raw.githubusercontent.com/DesolateDependency/my-nixos-configs/main/disko.nix
+curl -OL https://raw.githubusercontent.com/DesolateDependency/my-nixos-configs/main/setup/disko.nix
 ```
 \
-Make adjustments to the file, like adjusting the drive names:
+Make adjustments to the file, like adjusting the drive name:
 ```
 nano disko.nix
 ```
@@ -47,19 +47,20 @@ sudo nixos-generate-config --root /mnt
 Now we have to replace the automaticaly created configuration.nix file with our own.
 ```
 cd /mnt/etc/nixos/
-curl -OL https://raw.githubusercontent.com/DesolateDependency/my-nixos-configs/main/configuration.nix
+sudo curl -OL https://raw.githubusercontent.com/DesolateDependency/my-nixos-configs/main/setup/configuration.nix
 ```
-
+\
+Set a username that will be used in the later configuration:
+```
+nano configuration.nix
+```
+\
 Trigger the installation and reboot the system.
 ```
 sudo nixos-install
 reboot
 ```
-
-## Post installation setup
-
-### User setup
-
+\
 Login as the root user.
 Now you can change the user password of the user that is created on the configuration.nix.
 ```
@@ -73,13 +74,16 @@ logout
 \
 Login as the user now.
 
-### Setup git (SSH)
-
-Run WM (Hyprland) and open kitty:
+### Setup git
+check the ip of the new system with:
 ```
-Hyprland
+ifconfig
 ```
-`mod+q`
+\
+ssh into it.
+```
+ssh <username>@<ip>
+```
 \
 Generate an ssh key in the default location.
 ```
@@ -92,13 +96,12 @@ cd .ssh/
 cat id_ed25519.pub
 ```
 \
-Add the ssh key to your github account with the browser.
-
+Add the ssh key to your github account with a browser.
 \
 Clone the dotfiles and nix configs.
 ```
 cd
-git clone git@github.com:DesolateDependency/My-NixOS-Configs.git .dots
+git clone git@github.com:DesolateDependency/my-nixos-configs.git nix
 ```
 \
 Copy the hardware-configuration.nix file that was generated for this system into the .nixconfigs directory
