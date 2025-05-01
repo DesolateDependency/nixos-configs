@@ -12,9 +12,9 @@
 #  ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝
 
 # Default config for sway
-#
+
 # Copy this to ~/.config/sway/config and edit it to your liking.
-#
+
 # Read `man 5 sway` for a complete reference.
 
 
@@ -57,11 +57,11 @@ set $clear #403C4000
 client.focused_inactive  $clear  $clear     $clear  $clear    $clear
 client.unfocused         $clear  $clear     $clear  $clear    $clear
 
-gaps inner 16
+gaps inner 8
 
 client.focused "#73594F" "#73594F" "#73594F" "#73594F"
-# client.focused_inactive "#73594F" "#73594F" "#73594F" "#73594F"
-# client.unfocused "#73594F" "#73594F" "#73594F" "#73594F"
+client.focused_inactive "#3d4b54" "#3d4b54" "#3d4b54" "#3d4b54"
+client.unfocused "#3d4b54" "#3d4b54" "#3d4b54" "#3d4b54"
 
 # client.focused "#5CF2F2" "#5CF2F2" "#5CF2F2" "#5CF2F2"
 # client.focused_inactive "#45858C" "#45858C" "#45858C" "#45858C"
@@ -76,16 +76,16 @@ client.focused "#73594F" "#73594F" "#73594F" "#73594F"
 #  ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   ╚══════╝
 
 ### Output configuration
-#
+
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /home/DesDepy/Pictures/Wallpaper/catzz-Girl_drinking.jpg fill
-#
+# output * bg /home/desdpy/Pictures/Wallpaper/catzz-Girl_drinking.jpg fill
+
 # Example configuration:
-#
-output DP-5 mode 1920x1080@60Hz transform 270 position 0,0
-output DP-6 mode 1920x1080@60Hz transform 270 position 3000,0
-output HDMI-A-2 mode 1920x1080@60Hz position 1080,328
-#
+
+# output DP-5 mode 1920x1080@60Hz transform 270 position 0,0
+# output DP-6 mode 1920x1080@60Hz transform 270 position 3000,0
+# output HDMI-A-2 mode 1920x1080@60Hz position 1080,328
+
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 
@@ -98,14 +98,15 @@ output HDMI-A-2 mode 1920x1080@60Hz position 1080,328
 # ╚═╝╚═════╝ ╚══════╝╚══════╝
 
 ### Idle configuration
-#
+
 # Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
+
+# timeout 10 'swaymsg "input type:mouse events disable"; sleep 1; swaymsg "input type:mouse events enable"; swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+exec swayidle -w \
+    timeout 910 'swaylock -f -e -F -c 000000' \
+    timeout 900 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -e -F -c 000000'
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -120,16 +121,16 @@ output HDMI-A-2 mode 1920x1080@60Hz position 1080,328
 # ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝    ╚═╝   ╚══════╝
 
 ### Input configuration
-#
+
 # Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
+
+input type:touchpad {
+   dwt enabled
+   tap enabled
+   natural_scroll enabled
+   middle_emulation enabled
+}
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 input * {
@@ -145,14 +146,13 @@ input * {
 # ██║  ██║╚██████╔╝   ██║   ╚██████╔╝███████║   ██║   ██║  ██║██║  ██║   ██║
 # ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝
 
-exec doas /home/Desdpy/.config/sway/disable_outputs.sh
+# exec doas /home/Desdpy/.config/sway/disable_outputs.sh
 exec dbus-update-activation-environment DISPLAY XAUTHORITY SWAYSOCK I3SOCK WAYLAND_DISPLAY
 exec --no-startup-id dbus-update-activation-environment --all
-exec gentoo-pipewire-launcher
+exec gentoo-pipewire-launcher restart &
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec swww-daemon
 exec waybar
-# exec mako
 exec autotiling
 
 
@@ -165,22 +165,46 @@ exec autotiling
 #   ╚═══╝  ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝╚══════╝
 
 ### Variables
-#
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
+# set $left h
+# set $down j
+# set $up k
+# set $right l
 # Your preferred terminal emulator
 set $term foot
 # Your preferred browser
-set $browser firefox
+set $browser firefox-bin
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wmenu | xargs | fuzzel swaymsg exec --
+set $menu fuzzel swaymsg exec --
+# Your preferred vm-manager
+set $vm virt-manager
+# Your preferred email-client
+set $email proton-mail-bridge-gui & thunderbird
+# Your preferred discord-client
+set $discord vesktop-bin
+# Your preferred note-taking-app
+set $notes xournalpp
+# Your preferred file-manager
+set $files thunar
+# Your preferred messenger
+set $messenger signal-desktop
+# Your preferred network-manager
+set $network $term -e nmtui
+# Your preferred office-programm
+set $office onlyoffice-desktopeditors
+# Your preferred spotify-client
+set $spotify spotify
+# Your preferred bluetooth-manager
+set $bluetooth blueman-manager
+# Your preferred system-monitor
+set $monitor $term -e btop
+# Your preferred audio-manager
+set $audio $term -e pulsemixer
 
 
 
@@ -192,14 +216,50 @@ set $menu dmenu_path | wmenu | xargs | fuzzel swaymsg exec --
 # ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
 
 ### Key bindings
-#
+
 # Basics:
-#
-    # Start a terminal
+
+    # Start terminal
     bindsym $mod+Return exec $term
 
-    # Start the browser
+    # Start browser
     bindsym $mod+b exec $browser
+
+    # Start vm-manager
+    # bindsym $mod+v exec $vm
+
+    # Start email client
+    bindsym $mod+m exec $email
+
+    # Start discord client
+    bindsym $mod+g exec $discord
+
+    # Start note taking app
+    bindsym $mod+i exec $notes
+
+    # Start file-manager
+    bindsym $mod+t exec $files
+
+    # Start messenger
+    # bindsym $mod+m exec $messenger
+
+    # Start network manager
+    bindsym $mod+n exec $network
+
+    # Start office-programm
+    bindsym $mod+o exec $office
+
+    # Start spotify client
+    bindsym $mod+p exec $spotify
+
+    # Start bluetooth-manager
+    bindsym $mod+u exec $bluetooth
+
+    # Start system-monitor
+    bindsym $mod+z exec $monitor
+
+    # Start audio-manager
+    bindsym $mod+h exec $audio
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -217,16 +277,19 @@ set $menu dmenu_path | wmenu | xargs | fuzzel swaymsg exec --
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
+    # Lock session
+    bindsym $mod+l exec swaylock -f -e -F -c 000000
+
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-#
+
 # Moving around:
-#
+
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+    # bindsym $mod+$left focus left
+    # bindsym $mod+$down focus down
+    # bindsym $mod+$up focus up
+    # bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -234,18 +297,18 @@ set $menu dmenu_path | wmenu | xargs | fuzzel swaymsg exec --
     bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
+    # bindsym $mod+Shift+$left move left
+    # bindsym $mod+Shift+$down move down
+    # bindsym $mod+Shift+$up move up
+    # bindsym $mod+Shift+$right move right
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-#
+
 # Workspaces:
-#
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -270,9 +333,9 @@ set $menu dmenu_path | wmenu | xargs | fuzzel swaymsg exec --
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-#
+
 # Layout stuff:
-#
+
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
@@ -295,9 +358,9 @@ set $menu dmenu_path | wmenu | xargs | fuzzel swaymsg exec --
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
-#
+
 # Scratchpad:
-#
+
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
@@ -307,23 +370,23 @@ set $menu dmenu_path | wmenu | xargs | fuzzel swaymsg exec --
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
+
 # Resizing containers:
-#
+
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    # bindsym $left resize shrink width 10px
+    # bindsym $down resize grow height 10px
+    # bindsym $up resize shrink height 10px
+    # bindsym $right resize grow width 10px
 
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
+    bindsym Up resize grow height 10px
+    bindsym Down resize shrink height 10px
     bindsym Right resize grow width 10px
 
     # Return to default mode
@@ -333,7 +396,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Take screenshot from area
-bindsym print exec IMG=~/bilder_und_videos/Sascha/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') && grim -g "$(slurp)" $IMG && wl-copy < $IMG
+bindsym print exec IMG=~/Pictures/Screenshots/$(date +'screenshot_%Y-%m-%d-%H%M%S.png') && grim -g "$(slurp)" $IMG && wl-copy < $IMG
+
+# Brightness
+bindsym XF86MonBrightnessDown exec doas xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec doas xbacklight -inc 5
 
 
 
@@ -344,22 +411,27 @@ bindsym print exec IMG=~/bilder_und_videos/Sascha/Pictures/Screenshots/$(date +'
 # ██║ ╚═╝ ██║██║███████║╚██████╗
 # ╚═╝     ╚═╝╚═╝╚══════╝ ╚═════╝
 
-#
 # Status Bar:
-#
+
 # Read `man 5 sway-bar` for more information about this section.
 # bar {
 #     position top
-# 
+ 
 #     # When the status_command prints a new line to stdout, swaybar updates.
 #     # The default just shows the current date and time.
 #     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-# 
+ 
 #     colors {
 #         statusline #ffffff
 #         background #323232
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
+
+for_window {
+  [app_id=$term] floating enable
+# , resize set 1200 700
+}
+
 
 include /etc/sway/config.d/*
