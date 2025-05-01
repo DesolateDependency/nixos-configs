@@ -9,7 +9,6 @@
   
   networking.hostName = "initHost";
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts
 
   time.timeZone = "Europe/Berlin";
 
@@ -18,14 +17,15 @@
 
   services.xserver.xkb.layout = "de";
   services.openssh = {
-  enable = true;
-  ports = [ 22 ];
-  settings = {
-    PasswordAuthentication = true;
-    AllowUsers = null;
-    UseDns = true;
-    X11Forwarding = false;
-    PermitRootLogin = "prohibit-password";
+    enable = true;
+    ports = [ 22 ];
+    settings = {
+      PasswordAuthentication = true;
+      AllowUsers = null;
+      UseDns = true;
+      X11Forwarding = false;
+      PermitRootLogin = "prohibit-password";
+    };
   };
 
   users.users.<username-of-later-config> = {
