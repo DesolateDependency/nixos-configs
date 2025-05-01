@@ -3,6 +3,21 @@
 ## My NixOS Installation
 
 ### Preperation
+Set a password for the nixos user.
+```
+passwd
+```
+\
+Check the ip of the system.
+```
+ifconfig
+```
+\
+ssh into the system.
+```
+ssh nixos@<ip>
+```
+\
 To make the rest of the installation easier we can change the keyboard layout (this step is optional). This setting will not be applyed to the installed system.
 ```
 sudo loadkeys de-latin1
