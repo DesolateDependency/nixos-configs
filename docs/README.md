@@ -85,6 +85,12 @@ ssh into it.
 ssh <username>@<ip>
 ```
 \
+Add your git name and email imperatively first. It will be declarative as soon as the config files get cloned.
+```
+git config --global user.name "<name(DesDepy)>"
+git config --global user.email "<email(desolatedependency@gmail.com)>"
+```
+\
 Generate an ssh key in the default location.
 ```
 ssh-keygen
