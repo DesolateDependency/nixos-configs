@@ -73,7 +73,6 @@ sudo nano configuration.nix
 Trigger the installation and reboot the system.
 ```
 sudo nixos-install
-reboot
 ```
 \
 Reboot the system. This might have to be done on the device and not over ssh.
