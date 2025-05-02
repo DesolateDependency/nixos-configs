@@ -9,9 +9,11 @@
         isDefault = true;
         settings = {
           "sidebar.verticalTabs" = true;
+          "browser.toolbars.bookmarks.visibility" = "never";
         };
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           bitwarden
+          darkreader
         ];
       };
     };

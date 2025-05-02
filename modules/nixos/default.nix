@@ -24,6 +24,7 @@
     ./programs/tree.nix
     ./programs/git.nix
     ./programs/foot.nix
+    ./programs/vesktop.nix
 
     # nix
     ./nix/garbage-collection.nix
