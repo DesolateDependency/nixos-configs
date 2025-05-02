@@ -65,7 +65,7 @@ cd /mnt/etc/nixos/
 sudo curl -OL https://raw.githubusercontent.com/DesolateDependency/my-nixos-configs/main/setup/configuration.nix
 ```
 \
-Set a username that will be used in the later configuration:
+Set a username and hostname that will be used in the later configuration:
 ```
 sudo nano configuration.nix
 ```
@@ -132,35 +132,15 @@ git clone git@github.com:DesolateDependency/my-nixos-configs.git nix
 \
 Copy the hardware-configuration.nix file that was generated for this system into the .nixconfigs directory
 ```
-cp /etc/nixos/hardware-configuration.nix ~/.dots/
+cp /etc/nixos/hardware-configuration.nix ~/nix/hosts/unwired/
 ```
-
-### Run flake
-
-Rebuild the system with the flake.
-```
-cd .dots/
-sudo nixos-rebuild switch --flake .
-```
-
-### Setup and run home manager
-
-Setup the standalone home manager.
-```
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-```
-or
-```
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager
-```
-then
-```
-sudo nix-channel --update
-```
-If the install command has a "not found" error, reboot the system and retry.
-
 \
 Run home manager.
 ```
+cd nix/
 home-manager switch --flake .
+```
+Rebuild the system with the flake.
+```
+sudo nixos-rebuild switch --flake .
 ```
