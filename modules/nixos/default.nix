@@ -7,6 +7,7 @@
 
     # boot
     ./boot/systemd-boot.nix
+    ./boot/plymouth.nix
 
     # network
     ./networking/networkmanager.nix
@@ -20,7 +21,6 @@
     ./services/gnome-keyring.nix
 
     # programs
-    ./programs/librewolf.nix
     ./programs/tree.nix
     ./programs/git.nix
     ./programs/foot.nix
