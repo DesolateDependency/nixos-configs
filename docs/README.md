@@ -76,6 +76,11 @@ sudo nixos-install
 reboot
 ```
 \
+Reboot the system. This might have to be done on the device and not over ssh.
+```
+reboot
+```
+\
 Login as the root user.
 Now you can change the user password of the user that is created on the configuration.nix.
 ```
