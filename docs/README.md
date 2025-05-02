@@ -144,3 +144,8 @@ Rebuild the system with the flake.
 ```
 sudo nixos-rebuild switch --flake .
 ```
+\
+Remove .gitconfig from ~
+```
+rm ~/.gitconfig
+```
