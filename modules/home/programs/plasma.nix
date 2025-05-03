@@ -32,6 +32,12 @@
       }
     ];
 
+    startup.startupScript."autostart" = {
+      text = ''
+        protonvpn-app
+      '';
+    };
+
     /* hotkeys.commands."launch-konsole" = {
       name = "Launch Konsole";
       key = "Meta+Alt+K";
