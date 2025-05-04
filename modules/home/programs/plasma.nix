@@ -38,6 +38,11 @@
       '';
     };
 
+    kscreenlocker = {
+      lockOnResume = true;
+      timeout = 15;
+    };
+
     /* hotkeys.commands."launch-konsole" = {
       name = "Launch Konsole";
       key = "Meta+Alt+K";
@@ -274,10 +279,7 @@
       scripts.polonium.enable = true;
     };
 
-    kscreenlocker = {
-      lockOnResume = true;
-      timeout = 10;
-    }; */
+     */
 
     #
     # Some mid-level settings:

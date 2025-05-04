@@ -25,6 +25,7 @@
     ./programs/git.nix
     ./programs/foot.nix
     ./programs/vesktop.nix
+    ./programs/virt-manager.nix
 
     # nix
     ./nix/garbage-collection.nix
