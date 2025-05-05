@@ -11,6 +11,8 @@
 
     # file
     ./file/foot.nix
+    ./file/swayfx.nix
+    ./file/waybar.nix
 
   ];
 }

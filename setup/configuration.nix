@@ -35,7 +35,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    home-manager
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

@@ -27,6 +27,13 @@
     ./programs/vesktop.nix
     ./programs/virt-manager.nix
     ./programs/home-manager.nix
+    ./programs/swayfx.nix
+    ./programs/waybar.nix
+    ./programs/fuzzel.nix
+
+    # fonts
+    ./fonts/nerdfonts.nix
+    ./fonts/fontawesome.nix
 
     # nix
     ./nix/garbage-collection.nix

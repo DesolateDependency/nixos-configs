@@ -132,17 +132,17 @@ git clone git@github.com:DesolateDependency/my-nixos-configs.git nix
 \
 Copy the hardware-configuration.nix file that was generated for this system into the .nixconfigs directory
 ```
-cp /etc/nixos/hardware-configuration.nix ~/nix/hosts/unwired/
+cp /etc/nixos/hardware-configuration.nix ~/nix/hosts/<host-name>/
 ```
 \
-Run home manager.
-```
-cd nix/
-home-manager switch --flake .
-```
 Rebuild the system with the flake.
 ```
+cd nix/
 sudo nixos-rebuild switch --flake .
+```
+Run home manager.
+```
+home-manager switch --flake .
 ```
 \
 Remove .gitconfig from ~

@@ -78,7 +78,7 @@ client.unfocused "#3d4b54" "#3d4b54" "#3d4b54" "#3d4b54"
 ### Output configuration
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /home/desdpy/Pictures/Wallpaper/catzz-Girl_drinking.jpg fill
+output * bg /home/desdpy/nix/wallpapers/catzz-Girl_drinking.jpg fill
 
 # Example configuration:
 
@@ -134,7 +134,7 @@ input type:touchpad {
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 input * {
-        xkb_layout "de"
+    xkb_layout "de"
 }
 
 
@@ -147,12 +147,12 @@ input * {
 # ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝
 
 # exec doas /home/Desdpy/.config/sway/disable_outputs.sh
-exec dbus-update-activation-environment DISPLAY XAUTHORITY SWAYSOCK I3SOCK WAYLAND_DISPLAY
-exec --no-startup-id dbus-update-activation-environment --all
-exec gentoo-pipewire-launcher restart &
-exec /usr/libexec/polkit-gnome-authentication-agent-1
-exec swww-daemon
-exec waybar
+# exec dbus-update-activation-environment DISPLAY XAUTHORITY SWAYSOCK I3SOCK WAYLAND_DISPLAY
+# exec --no-startup-id dbus-update-activation-environment --all
+# exec gentoo-pipewire-launcher restart &
+# exec /usr/libexec/polkit-gnome-authentication-agent-1
+# exec swww-daemon
+# exec waybar
 exec autotiling
 
 
@@ -176,7 +176,7 @@ set $mod Mod4
 # Your preferred terminal emulator
 set $term foot
 # Your preferred browser
-set $browser firefox-bin
+set $browser librewolf
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
