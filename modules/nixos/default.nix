@@ -28,6 +28,7 @@
     ./programs/virt-manager.nix
     ./programs/home-manager.nix
     ./programs/fastfetch.nix
+    ./programs/brave.nix
 
     # nix
     ./nix/garbage-collection.nix
