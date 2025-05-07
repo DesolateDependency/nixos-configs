@@ -37,6 +37,7 @@
       text = ''
         protonvpn-app &
       '';
+      runAlways = true;
     };
 
     kscreenlocker = {
