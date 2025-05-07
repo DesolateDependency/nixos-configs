@@ -35,7 +35,7 @@
 
     startup.startupScript."autostart" = {
       text = ''
-        protonvpn-app
+        protonvpn-app &
       '';
     };
 
