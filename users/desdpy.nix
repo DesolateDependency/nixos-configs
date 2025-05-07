@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     ../modules/home/default.nix
+    ../modules/home/file/yubico-desdpy.nix
   ];
 
   home = {
