@@ -10,6 +10,7 @@
     ../../modules/nixos/default.nix
     ../../modules/nixos/yubikeys.nix   # Only use with u2f_keys file! + indirectly locks root user :)
     ../../modules/nixos/virtual-machines.nix
+    ../../modules/nixos/hardware/bluetooth.nix
   ];
 
   # Define your hostname.
