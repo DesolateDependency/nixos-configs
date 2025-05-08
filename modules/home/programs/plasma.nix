@@ -4,35 +4,35 @@
     enable = true;
     overrideConfig = true;
 
-    #
-    # Some high-level settings:
-    #
     workspace = {
-      # clickItemTo = "open"; # If you liked the click-to-open default from plasma 5
+
+      # Appearance & Style -> Colors & Themes -> Global Theme
       lookAndFeel = "org.kde.breezedark.desktop";
-      # cursor = {
-      #   theme = "Bibata-Modern-Ice";
-      #   size = 32;
-      # };
-      # iconTheme = "Papirus-Dark";
+
+      # Appearance & Style -> Wallpaper
       wallpaper = ../../../wallpapers/catzz-Girl_drinking.jpg;
+
     };
 
+    # Input & Output -> Mouse & Touchpad -> Touchpad
     input.touchpads = [
       {
-        disableWhileTyping = true;
+        # Thinkpad T14 Gen 1
         enable = true;
+        name = "SynPS/2 Synaptics TouchPad";
+        vendorId = "0002";
+        productId = "0007";
+        
+        disableWhileTyping = true;
         leftHanded = true;
         middleButtonEmulation = true;
-        name = "SynPS/2 Synaptics TouchPad"; # Thinkpad T14 Gen 1
-        naturalScroll = true;
         pointerSpeed = 0;
-        productId = "0007";
+        naturalScroll = true;
         tapToClick = true;
-        vendorId = "0002";
       }
     ];
 
+    # System -> Autostart
     startup.startupScript."autostart" = {
       text = ''
         protonvpn-app &
@@ -40,15 +40,31 @@
       runAlways = true;
     };
 
+    # Security & Privacy -> Screen Locking
     kscreenlocker = {
       lockOnResume = true;
       timeout = 15;
     };
 
     configFile = {
+
+      # Apps & Windows -> Window Management -> Window Behavior
       "kwinrc"."Windows"."FocusPolicy" = "FocusFollowsMouse";
       "kwinrc"."Windows"."NextFocusPrefersMouse" = true;
+      "kwinrc"."Windows"."DelayFocusInterval" = 0;
+      
     };
+
+    /* workspace = {
+      clickItemTo = "open"; # If you liked the click-to-open default from plasma 5
+      lookAndFeel = "org.kde.breezedark.desktop";
+      cursor = {
+        theme = "Bibata-Modern-Ice";
+        size = 32;
+      };
+      iconTheme = "Papirus-Dark";
+      wallpaper = ../../../wallpapers/catzz-Girl_drinking.jpg;
+    }; */
 
     /* hotkeys.commands."launch-konsole" = {
       name = "Launch Konsole";
