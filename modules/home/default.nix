@@ -8,9 +8,12 @@
     ./programs/git.nix
     ./programs/vscode.nix
     ./programs/protonvpn-gui.nix
-
-    # file
-    ./file/foot.nix
+    ./programs/brave.nix
+    ./programs/mullvad-browser.nix
+    ./programs/fastfetch.nix
+    ./programs/foot.nix
+    ./programs/tree.nix
+    ./programs/vesktop.nix
 
   ];
 }

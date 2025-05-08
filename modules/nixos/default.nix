@@ -20,16 +20,6 @@
     ./services/plasma6.nix
     ./services/gnome-keyring.nix
 
-    # programs
-    ./programs/tree.nix
-    ./programs/git.nix
-    ./programs/foot.nix
-    ./programs/vesktop.nix
-    ./programs/home-manager.nix
-    ./programs/fastfetch.nix
-    ./programs/brave.nix
-    ./programs/mullvad-browser.nix
-
     # nix
     ./nix/garbage-collection.nix
     ./nix/experimental-features.nix
