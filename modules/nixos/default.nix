@@ -25,7 +25,6 @@
     ./programs/git.nix
     ./programs/foot.nix
     ./programs/vesktop.nix
-    ./programs/virt-manager.nix
     ./programs/home-manager.nix
     ./programs/fastfetch.nix
     ./programs/brave.nix
