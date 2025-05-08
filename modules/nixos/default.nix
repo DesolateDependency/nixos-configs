@@ -28,6 +28,7 @@
     ./programs/home-manager.nix
     ./programs/fastfetch.nix
     ./programs/brave.nix
+    ./programs/mullvad-browser.nix
 
     # nix
     ./nix/garbage-collection.nix

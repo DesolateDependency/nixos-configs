@@ -45,6 +45,11 @@
       timeout = 15;
     };
 
+    configFile = {
+      "kwinrc"."Windows"."FocusPolicy" = "FocusFollowsMouse";
+      "kwinrc"."Windows"."NextFocusPrefersMouse" = true;
+    };
+
     /* hotkeys.commands."launch-konsole" = {
       name = "Launch Konsole";
       key = "Meta+Alt+K";

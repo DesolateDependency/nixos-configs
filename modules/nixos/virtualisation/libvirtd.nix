@@ -1,7 +1,14 @@
 { pkgs, ... }: {
 
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        swtpm.enable = true;
+        ovmf.enable = true;
+        ovmf.packages = [ pkgs.OVMFFull.fd ];
+      };
+    };
+    spiceUSBRedirection.enable = true;
   };
 }
