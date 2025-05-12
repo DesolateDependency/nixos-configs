@@ -46,12 +46,36 @@
       timeout = 15;
     };
 
+    # Apps & Windows -> Window Management -> Window Rules
+    window-rules = [
+      {
+        description = "Set minimum geometry size";
+        match = {
+          window-types = [ "normal" ];
+        };
+        apply = {
+          minsize = {
+            apply = "force";
+            value = "0,0";
+          };
+        };
+      }
+    ];
+
     configFile = {
 
       # Apps & Windows -> Window Management -> Window Behavior
       "kwinrc"."Windows"."FocusPolicy" = "FocusFollowsMouse";
       "kwinrc"."Windows"."NextFocusPrefersMouse" = true;
       "kwinrc"."Windows"."DelayFocusInterval" = 0;
+
+      # Apps & Windows -> Window Management -> KWin Scripts -> Krohnkite
+      "kwinrc"."Plugins"."krohnkiteEnabled" = true;
+      "kwinrc"."Script-krohnkite"."screenGapBottom" = 8;
+      "kwinrc"."Script-krohnkite"."screenGapLeft" = 8;
+      "kwinrc"."Script-krohnkite"."screenGapRight" = 8;
+      "kwinrc"."Script-krohnkite"."screenGapTop" = 8;
+      "kwinrc"."Script-krohnkite"."tileLayoutGap" = 8;
       
     };
 
