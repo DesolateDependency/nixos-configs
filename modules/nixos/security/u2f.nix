@@ -1,21 +1,24 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }:
 
-  security.pam.u2f = {
-    enable = true;
-    control = "required";
-    settings = {
-      interactive = true;
-      cue = true;
-    };
-  };
+  let
+    linux-pam = pkgs.linux-pam;
+    pam_u2f = pkgs.pam_u2f;
+  in {
 
-  /* security.pam.services.login.text = ''
-    auth required pam_unix.so
-    auth required pam_u2f.so cue
-  '';
+    security.pam.services.sudo.text = pkgs.lib.mkDefault (pkgs.lib.mkBefore ''
+      # Extra authentication management.
+      auth sufficient ${pam_u2f}/lib/security/pam_u2f.so cue
+    '');
 
-  security.pam.services.sudo.text = ''
-    auth sufficient pam_u2f.so cue
-    auth required pam_unix.so nullok
-  ''; */
-}
+    security.pam.services.login.text = pkgs.lib.mkDefault (pkgs.lib.mkBefore ''
+      # Extra authentication management.
+      auth required ${linux-pam}/lib/security/pam_unix.so
+      auth required ${pam_u2f}/lib/security/pam_u2f.so cue
+    '');
+
+    security.pam.services.kde.text = pkgs.lib.mkDefault (pkgs.lib.mkBefore ''
+      # Extra authentication management.
+      auth required ${linux-pam}/lib/security/pam_unix.so
+      auth required ${pam_u2f}/lib/security/pam_u2f.so cue
+    '');
+  }
