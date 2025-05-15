@@ -16,6 +16,8 @@
     ./programs/tree.nix
     ./programs/vesktop.nix
     ./programs/xournalpp.nix
+    ./programs/thunderbird.nix
+    ./programs/protonmail-bridge-gui.nix
 
   ];
 }

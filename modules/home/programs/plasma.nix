@@ -36,6 +36,7 @@
     startup.startupScript."autostart" = {
       text = ''
         protonvpn-app &
+        protonmail-bridge-gui --no-window &
       '';
       runAlways = true;
     };

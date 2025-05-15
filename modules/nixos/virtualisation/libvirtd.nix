@@ -6,7 +6,8 @@
       qemu = {
         swtpm.enable = true;
         ovmf.enable = true;
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
+        ovmf.packages = with pkgs; [ OVMFFull.fd ];
+        vhostUserPackages = with pkgs; [ virtiofsd ];
       };
     };
     spiceUSBRedirection.enable = true;
