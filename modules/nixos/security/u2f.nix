@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
   let
-    # Needed to get path in nix store, because can't use the modules directly
+    # Needed to get path in nix store, because we can't use the modules directly
     pam_unix = "${pkgs.linux-pam}/lib/security/pam_unix.so";
     pam_u2f = "${pkgs.pam_u2f}/lib/security/pam_u2f.so";
   in {
