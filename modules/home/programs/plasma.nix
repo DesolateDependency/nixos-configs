@@ -41,6 +41,63 @@
       runAlways = true;
     };
 
+    # Apps & Windows -> Window Management -> Virtual Desktops
+    kwin.virtualDesktops = {
+      number = 9;
+      rows = 3;
+    };
+
+    # Panels
+    panels = [
+      {
+        alignment = "left";
+        lengthMode = "fit";
+        floating = true;
+        height = 34;
+        hiding = "windowsgobelow";
+        location = "top";
+        widgets = [
+          "org.kde.plasma.kickoff"
+        ];
+      }
+      {
+        alignment = "left";
+        lengthMode = "custom";
+        maxLength = 1000;
+        minLength = 0;
+        offset = 52;
+        floating = true;
+        height = 34;
+        hiding = "windowsgobelow";
+        location = "top";
+        widgets = [
+          "org.kde.plasma.pager"
+        ];
+      }
+      {
+        alignment = "center";
+        lengthMode = "fit";
+        floating = true;
+        height = 34;
+        hiding = "windowsgobelow";
+        location = "top";
+        widgets = [
+          "org.kde.plasma.digitalclock"
+        ];
+      }
+      {
+        alignment = "right";
+        lengthMode = "fit";
+        floating = true;
+        height = 34;
+        hiding = "windowsgobelow";
+        location = "top";
+        widgets = [
+          "org.kde.plasma.systemtray"
+        ];
+      }
+    ];
+
     # Security & Privacy -> Screen Locking
     kscreenlocker = {
       lockOnResume = true;
@@ -75,7 +132,7 @@
       "kwinrc"."Script-krohnkite"."screenGapBottom" = 8;
       "kwinrc"."Script-krohnkite"."screenGapLeft" = 8;
       "kwinrc"."Script-krohnkite"."screenGapRight" = 8;
-      "kwinrc"."Script-krohnkite"."screenGapTop" = 8;
+      "kwinrc"."Script-krohnkite"."screenGapTop" = 50;
       "kwinrc"."Script-krohnkite"."tileLayoutGap" = 8;
       
     };
