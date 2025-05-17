@@ -19,6 +19,10 @@
     ./services/sddm.nix
     ./services/plasma6.nix
     ./services/gnome-keyring.nix
+    ./services/tailscale.nix
+
+    # fonts
+    ./fonts/nerdfonts.nix
 
     # nix
     ./nix/garbage-collection.nix

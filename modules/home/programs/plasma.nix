@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
 
   programs.plasma = {
     enable = true;
@@ -425,4 +425,8 @@
       };
     }; */
   };
+
+  home.activation.setupTerminals = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    bash ${./plasma_helpers/set_default_terminal.sh} foot
+  '';
 }
