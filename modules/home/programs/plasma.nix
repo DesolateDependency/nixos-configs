@@ -80,6 +80,11 @@
         "Window One Desktop Up" = "Meta+Ctrl+Up"; # Default: Meta+Ctrl+Shift+Up
         "Window One Desktop to the Left" = "Meta+Ctrl+Left"; # Default: Meta+Ctrl+Shift+Left
         "Window One Desktop to the Right" = "Meta+Ctrl+Right"; # Default: Meta+Ctrl+Shift+Right
+        "MoveMouseToFocus" = "Meta+Alt+PgDown"; # Meta+F5
+        /* "Switch Window Down" = [ ]; # Default: Meta+Alt+Down
+        "Switch Window Left" = [ ]; # Default: Meta+Alt+Left
+        "Switch Window Right" = [ ]; # Default: Meta+Alt+Right
+        "Switch Window Up" = [ ]; # Default: Meta+Alt+Up */
       };
       plasmashell = {
         "activate task manager entry 1" = [ ]; # Default: Meta+1
@@ -92,14 +97,34 @@
         "activate task manager entry 8" = [ ]; # Default: Meta+8
         "activate task manager entry 9" = [ ]; # Default: Meta+9
       };
+
+      # Input & Output -> Keyboard -> Shortcuts -> Add New
+      "services/foot.desktop"."_launch" = "Meta+T";
     };
 
     # Input & Output -> Keyboard -> Shortcuts -> Add New
-    hotkeys.commands."launch-terminal" = {
-      name = "Launch Terminal";
-      key = "Meta+T";
-      command = "foot";
-    };
+    /* hotkeys.commands = {
+      "switch-window-down" = {
+        name = "Switch Window Down";
+        key = "Meta+Alt+Down";
+        command = "bash ${./plasma_helpers/switch_window.sh} Down";
+      };
+      "switch-window-up" = {
+        name = "Switch Window Up";
+        key = "Meta+Alt+Up";
+        command = "bash ${./plasma_helpers/switch_window.sh} Up";
+      };
+      "switch-window-left" = {
+        name = "Switch Window Left";
+        key = "Meta+Alt+Left";
+        command = "bash ${./plasma_helpers/switch_window.sh} Left";
+      };
+      "switch-window-right" = {
+        name = "Switch Window Right";
+        key = "Meta+Alt+Right";
+        command = "bash ${./plasma_helpers/switch_window.sh} Right";
+      };
+    }; */
 
     # Apps & Windows -> Window Management -> Virtual Desktops
     kwin.virtualDesktops = {
