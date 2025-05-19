@@ -7,10 +7,11 @@
     workspace = {
 
       # Appearance & Style -> Colors & Themes -> Global Theme
-      lookAndFeel = "org.kde.breezedark.desktop";
+      # (plasma-apply-lookandfeel --list)
+      lookAndFeel = "Catppuccin-Frappe-Blue";
 
       # Appearance & Style -> Wallpaper
-      wallpaper = ../../../wallpapers/catzz-Girl_drinking.jpg;
+      wallpaper = ../../../wallpapers/catppuccin_walls/wallpapers_png/whoami.png;
 
     };
 
@@ -203,6 +204,18 @@
           };
         };
       }
+      {
+        description = "Disable decorations";
+        match = {
+          window-types = [ "normal" ];
+        };
+        apply = {
+          noborder = {
+            value = true;
+            apply = "force";
+          };
+        };
+      }
     ];
 
     configFile = {
@@ -219,6 +232,19 @@
       "kwinrc"."Script-krohnkite"."screenGapRight" = 8;
       "kwinrc"."Script-krohnkite"."screenGapTop" = 50;
       "kwinrc"."Script-krohnkite"."tileLayoutGap" = 8;
+
+      # Apps & Windows -> Window Management -> Desdktop Effects -> Geometry Change
+      "kwinrc"."Plugins"."kwin4_effect_geometry_changeEnabled" = true;
+
+      # Apps & Windows -> Window Management -> Desdktop Effects -> Rounded Corners
+      "kwinrc"."Round-Corners"."InactiveOutlineColor" = "48,52,70";
+      "kwinrc"."Round-Corners"."InactiveOutlineThickness" = 2.5;
+      "kwinrc"."Round-Corners"."InactiveSecondOutlineColor" = "29,29,45";
+      "kwinrc"."Round-Corners"."InactiveSecondOutlineThickness" = 4.25;
+      "kwinrc"."Round-Corners"."OutlineColor" = "221,161,201";
+      "kwinrc"."Round-Corners"."OutlineThickness" = 2.5;
+      "kwinrc"."Round-Corners"."SecondOutlineColor" = "29,29,44";
+      "kwinrc"."Round-Corners"."SecondOutlineThickness" = 4.25;
 
       # Apps & Windows -> Default Applications -> Default Applications
       "kdeglobals"."General"."TerminalApplication" = "foot";
@@ -513,6 +539,12 @@
         "Greeter/Wallpaper/org.kde.potd/General".Provider = "bing";
       };
     }; */
+  };
+
+  # Manually add plugins
+  home.file.".local/share/kwin/effects" = {
+    source = ./plasma_extra_packages/geometry_change;
+    recursive = true;
   };
 
   /* {

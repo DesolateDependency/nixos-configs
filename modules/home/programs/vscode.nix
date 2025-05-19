@@ -8,6 +8,8 @@
       ms-vscode-remote.remote-containers
       bbenoist.nix
       ms-vscode-remote.remote-ssh-edit
+      catppuccin.catppuccin-vsc
+      catppuccin.catppuccin-vsc-icons
     ];
   };
 }
