@@ -194,6 +194,7 @@
     kscreenlocker = {
       lockOnResume = true;
       timeout = 15;
+      appearance.wallpaper = ../../../wallpapers/catppuccin_walls/wallpapers_png/whoami_blured.png;
     };
 
     # Apps & Windows -> Window Management -> Window Rules
