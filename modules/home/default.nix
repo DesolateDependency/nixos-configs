@@ -5,6 +5,7 @@
     ./programs/plasma.nix
     ./programs/krohnkite.nix
     ./programs/catppuccin-kde.nix
+    ./programs/gtk.nix
     ./programs/kde-rounded-corners.nix
     ./programs/librewolf.nix
     ./programs/bash.nix

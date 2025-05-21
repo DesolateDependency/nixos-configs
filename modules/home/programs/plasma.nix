@@ -24,6 +24,7 @@
         vendorId = "0002";
         productId = "0007";
         
+        accelerationProfile = "none";
         disableWhileTyping = true;
         leftHanded = true;
         middleButtonEmulation = true;
@@ -108,6 +109,9 @@
       # Input & Output -> Keyboard -> Shortcuts -> Add New
       "services/foot.desktop"."_launch" = "Meta+T";
     };
+
+    # System -> Session -> Desdktop Session
+    session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
 
     # Input & Output -> Keyboard -> Shortcuts -> Add New
     /* hotkeys.commands = {
