@@ -24,7 +24,7 @@
         vendorId = "0002";
         productId = "0007";
         
-        accelerationProfile = "none";
+        # accelerationProfile = "none";
         disableWhileTyping = true;
         leftHanded = true;
         middleButtonEmulation = true;
@@ -150,7 +150,7 @@
         lengthMode = "fit";
         floating = true;
         height = 34;
-        hiding = "windowsgobelow";
+        hiding = "dodgewindows";
         location = "top";
         widgets = [
           "org.kde.plasma.kickoff"
@@ -164,7 +164,7 @@
         offset = 52;
         floating = true;
         height = 34;
-        hiding = "windowsgobelow";
+        hiding = "dodgewindows";
         location = "top";
         widgets = [
           "org.kde.plasma.pager"
@@ -175,7 +175,7 @@
         lengthMode = "fit";
         floating = true;
         height = 34;
-        hiding = "windowsgobelow";
+        hiding = "dodgewindows";
         location = "top";
         widgets = [
           "org.kde.plasma.digitalclock"
@@ -186,7 +186,7 @@
         lengthMode = "fit";
         floating = true;
         height = 34;
-        hiding = "windowsgobelow";
+        hiding = "dodgewindows";
         location = "top";
         widgets = [
           "org.kde.plasma.systemtray"
