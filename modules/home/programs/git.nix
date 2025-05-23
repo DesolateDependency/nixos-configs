@@ -2,7 +2,7 @@
   programs.git = {
     enable = true;
     userName = "DesDepy";
-    userEmail = "desolatedependency@gmail.com";
+    userEmail = "github.com.passerby609@passfwd.com";
     extraConfig = {
       init.defaultBranch = "main";
     };
